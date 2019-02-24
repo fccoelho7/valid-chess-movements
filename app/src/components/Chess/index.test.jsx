@@ -1,6 +1,8 @@
 import React from "react";
-import Chess from "./";
 import { shallow } from "enzyme";
+import Chess from "./";
+
+jest.mock("../../services/KnightService");
 
 describe("Chess", () => {
   let wrapper;
@@ -19,11 +21,13 @@ describe("Chess", () => {
     expect(wrapper.find(".item-1-2").hasClass("active")).toBeTruthy();
   });
 
-  it("highlights available positions", () => {
+  it("highlights available positions", async () => {
     wrapper.find(".show-moviments").simulate("click");
 
+    await Promise.resolve();
+
     expect(wrapper.find(".item-2-3").hasClass("moviment")).toBeTruthy();
-    expect(wrapper.find(".item-4-5").hasClass("moviment")).toBeTruthy();
+    expect(wrapper.find(".item-3-2").hasClass("moviment")).toBeTruthy();
     expect(wrapper.find(".item-1-7").hasClass("moviment")).toBeTruthy();
   });
 });

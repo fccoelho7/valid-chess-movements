@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import cs from "classnames";
+import KnightService from "../../services/KnightService";
+import formatPosition from "./utils/formatPosition";
 
 import "./styles.css";
 
@@ -23,16 +25,21 @@ class Chess extends Component {
 
   moveKnight = position => this.setState({ knightPosition: position });
 
-  showMoviments = () =>
-    // this.setState({ loading: true }, () => {
-    //   setTimeout(() => {
-    //     this.setState({
-    //       availableMoviments: [[2, 3], [4, 5], [1, 7]],
-    //       loading: false
-    //     });
-    //   }, 1000);
-    // });
-    this.setState({ availableMoviments: [[2, 3], [4, 5], [1, 7]] });
+  showMoviments = () => {
+    const { knightPosition } = this.state;
+    const formatedPosition = formatPosition(knightPosition);
+
+    this.setState({ loading: true }, async () => {
+      try {
+        const availableMoviments = await KnightService.getMoviment(
+          formatedPosition
+        );
+        this.setState({ availableMoviments, loading: false });
+      } catch {
+        this.setState({ loading: false });
+      }
+    });
+  };
 
   renderChess = () => {
     const { loading } = this.state;
