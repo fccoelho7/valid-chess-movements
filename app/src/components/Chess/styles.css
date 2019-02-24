@@ -1,6 +1,20 @@
 body {
+  background-color: #ccc;
   margin: 0;
   padding: 0;
+}
+
+h1 {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.btn {
+  background-color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8em;
+  padding: 5px;
 }
 
 .chess-board {
@@ -9,8 +23,8 @@ body {
 }
 
 .chess-board-main {
+  margin-top: 10px;
   position: relative;
-  background-color: #fbd096;
 }
 
 .chess-board-main.loading:after {
@@ -31,24 +45,25 @@ body {
 }
 
 .row:nth-child(2n) .item:nth-child(2n) {
-  background-color: #fbd096;
+  background-color: #f0d9b5;
 }
 
 .row:nth-child(2n + 1) .item:nth-child(2n + 1) {
-  background-color: #fbd096;
+  background-color: #f0d9b5;
 }
 
 .item {
-  background-color: #d48745;
-  height: 12.5vh;
-  width: 12.5%;
+  background-color: #b58862;
+  height: 100px;
   flex-grow: 1;
   cursor: pointer;
-  border-radius: 5px;
 }
 
 .item.active {
-  background: grey !important;
+  background-image: url("https://images.vexels.com/media/users/3/143174/isolated/preview/34f1b2b61373f599d8f735e91ce37851-knight-chess-figure-black-by-vexels.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80%;
 }
 
 .item.moviment {
@@ -57,6 +72,6 @@ body {
 
 @media screen and (min-width: 1024px) {
   .chess-board {
-    width: 1024px;
+    width: 800px;
   }
 }

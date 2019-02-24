@@ -82,7 +82,7 @@ class Chess extends Component {
   render() {
     return (
       <div className="chess-board">
-        <button className="show-moviments" onClick={this.showMoviments}>
+        <button className="btn show-moviments" onClick={this.showMoviments}>
           Show Moviments (?)
         </button>
         {this.renderChess()}
