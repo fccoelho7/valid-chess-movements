@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.chess-board {
+  margin: 0 auto;
+  position: relative;
+}
+
+.chess-board-main {
+  position: relative;
+  background-color: #fbd096;
+}
+
+.chess-board-main.loading:after {
+  background-color: rgba(255, 255, 255, 0.6);
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row:nth-child(2n) .item:nth-child(2n) {
+  background-color: #fbd096;
+}
+
+.row:nth-child(2n + 1) .item:nth-child(2n + 1) {
+  background-color: #fbd096;
+}
+
+.item {
+  background-color: #d48745;
+  height: 12.5vh;
+  width: 12.5%;
+  flex-grow: 1;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.item.active {
+  background: grey !important;
+}
+
+.item.moviment {
+  background-color: tomato !important;
+}
+
+@media screen and (min-width: 1024px) {
+  .chess-board {
+    width: 1024px;
+  }
+}
