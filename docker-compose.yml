@@ -6,7 +6,7 @@ services:
     command: bash -c "yarn start"
     restart: always
     volumes:
-      - ./app:/app
+      - ./app/src:/app/src
     ports:
       - "3000:3000"
       - "35729:35729"
