@@ -8,7 +8,7 @@ RSpec.describe ChessController, type: :controller do
       end
 
       it 'status ok' do
-        expect(response).to be_success
+        expect(response).to be_successful
       end
 
       it 'returns knight movements' do
@@ -23,7 +23,7 @@ RSpec.describe ChessController, type: :controller do
       end
 
       it 'status error' do
-        expect(response).to be_error
+        expect(response).to be_server_error
       end
     end
   end
