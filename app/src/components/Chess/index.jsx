@@ -59,7 +59,7 @@ class Chess extends Component {
 
         children.push(
           <div
-            className={cs(`item item-${x}-${y}`, {
+            className={cs(`square square-${x}-${y}`, {
               active,
               moviment
             })}

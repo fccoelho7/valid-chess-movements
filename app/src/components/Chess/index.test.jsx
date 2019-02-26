@@ -12,23 +12,23 @@ describe("Chess", () => {
   });
 
   it("renders a chess board", () => {
-    expect(wrapper.find(".item").length).toEqual(64);
+    expect(wrapper.find(".square").length).toEqual(64);
   });
 
   it("moves knight", () => {
-    wrapper.find(".item-1-2").simulate("click");
+    wrapper.find(".square-1-2").simulate("click");
 
-    expect(wrapper.find(".item-1-2").hasClass("active")).toBeTruthy();
+    expect(wrapper.find(".square-1-2").hasClass("active")).toBeTruthy();
   });
 
   it("highlights available positions", async () => {
-    wrapper.find(".item-1-2").simulate("click");
+    wrapper.find(".square-1-2").simulate("click");
     wrapper.find(".show-moviments").simulate("click");
 
     await Promise.resolve();
 
-    expect(wrapper.find(".item-2-3").hasClass("moviment")).toBeTruthy();
-    expect(wrapper.find(".item-3-2").hasClass("moviment")).toBeTruthy();
-    expect(wrapper.find(".item-1-7").hasClass("moviment")).toBeTruthy();
+    expect(wrapper.find(".square-2-3").hasClass("moviment")).toBeTruthy();
+    expect(wrapper.find(".square-3-2").hasClass("moviment")).toBeTruthy();
+    expect(wrapper.find(".square-1-7").hasClass("moviment")).toBeTruthy();
   });
 });
