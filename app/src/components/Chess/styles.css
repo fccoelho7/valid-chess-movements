@@ -4,7 +4,9 @@
 }
 
 .chess-board-main {
+  border-radius: 5px;
   margin-top: 10px;
+  overflow: hidden;
   position: relative;
 }
 
