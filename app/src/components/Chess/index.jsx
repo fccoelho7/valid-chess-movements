@@ -17,7 +17,7 @@ class Chess extends Component {
     return knightPosition && knightPosition.x === x && knightPosition.y === y;
   }
 
-  ismovement(x, y) {
+  isMovement(x, y) {
     return this.state.availablemovements.some(
       item => item[0] === x && item[1] === y
     );
@@ -26,7 +26,7 @@ class Chess extends Component {
   moveKnight = position =>
     this.setState({ knightPosition: position, availablemovements: [] });
 
-  showmovements = () => {
+  showMovements = () => {
     const { knightPosition } = this.state;
 
     if (!knightPosition) return;
@@ -35,7 +35,7 @@ class Chess extends Component {
 
     this.setState({ loading: true }, async () => {
       try {
-        const availablemovements = await KnightService.getmovement(
+        const availablemovements = await KnightService.getMovements(
           formatedPosition
         );
         this.setState({ availablemovements, loading: false });
@@ -54,7 +54,7 @@ class Chess extends Component {
       for (let x = 1; x < 9; x++) {
         const coords = `${x}, ${y}`;
         const active = this.isActive(x, y);
-        const movement = this.ismovement(x, y);
+        const movement = this.isMovement(x, y);
 
         children.push(
           <div
@@ -81,7 +81,7 @@ class Chess extends Component {
   render() {
     return (
       <div className="chess-board">
-        <button className="btn show-movements" onClick={this.showmovements}>
+        <button className="btn show-movements" onClick={this.showMovements}>
           {this.state.loading ? "Loading.." : "Show movements (?)"}
         </button>
         {this.renderChess()}

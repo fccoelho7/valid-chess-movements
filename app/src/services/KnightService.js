@@ -1,7 +1,7 @@
 import http from "../utils/http";
 
 const KnightService = {
-  getmovement(position) {
+  getMovements(position) {
     return new Promise((resolve, reject) =>
       http
         .get(`/movements/knight/${position}`)

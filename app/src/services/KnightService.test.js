@@ -4,11 +4,11 @@ import KnightService from "./KnightService";
 jest.mock("../utils/http");
 
 describe("KnightService", () => {
-  describe("getmovements", () => {
+  describe("getMovementss", () => {
     let movements;
 
     beforeAll(async () => {
-      movements = await KnightService.getmovement("A1");
+      movements = await KnightService.getMovements("A1");
     });
 
     it("calls http client with correct route path", () => {
