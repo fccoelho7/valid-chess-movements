@@ -11,7 +11,7 @@ RSpec.describe ChessController, type: :controller do
     end
 
     it 'returns knight moviments' do
-      expected_response = { data: [[3, 2], [2, 3]] }.to_json
+      expected_response = { moviments: [[3, 2], [2, 3]] }.to_json
       expect(response.body).to eq(expected_response)
     end
   end
