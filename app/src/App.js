@@ -5,7 +5,7 @@ import "./App.css";
 
 const App = () => (
   <Fragment>
-    <h1>Valid Chess Moviments</h1>
+    <h1>Valid Chess movements</h1>
     <Chess />
   </Fragment>
 );

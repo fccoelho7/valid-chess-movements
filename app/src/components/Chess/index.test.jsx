@@ -23,12 +23,12 @@ describe("Chess", () => {
 
   it("highlights available positions", async () => {
     wrapper.find(".square-1-2").simulate("click");
-    wrapper.find(".show-moviments").simulate("click");
+    wrapper.find(".show-movements").simulate("click");
 
     await Promise.resolve();
 
-    expect(wrapper.find(".square-2-3").hasClass("moviment")).toBeTruthy();
-    expect(wrapper.find(".square-3-2").hasClass("moviment")).toBeTruthy();
-    expect(wrapper.find(".square-1-7").hasClass("moviment")).toBeTruthy();
+    expect(wrapper.find(".square-2-3").hasClass("movement")).toBeTruthy();
+    expect(wrapper.find(".square-3-2").hasClass("movement")).toBeTruthy();
+    expect(wrapper.find(".square-1-7").hasClass("movement")).toBeTruthy();
   });
 });

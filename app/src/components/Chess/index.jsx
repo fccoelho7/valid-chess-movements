@@ -8,7 +8,7 @@ import "./styles.css";
 class Chess extends Component {
   state = {
     knightPosition: null,
-    availableMoviments: [],
+    availablemovements: [],
     loading: false
   };
 
@@ -17,16 +17,16 @@ class Chess extends Component {
     return knightPosition && knightPosition.x === x && knightPosition.y === y;
   }
 
-  isMoviment(x, y) {
-    return this.state.availableMoviments.some(
+  ismovement(x, y) {
+    return this.state.availablemovements.some(
       item => item[0] === x && item[1] === y
     );
   }
 
   moveKnight = position =>
-    this.setState({ knightPosition: position, availableMoviments: [] });
+    this.setState({ knightPosition: position, availablemovements: [] });
 
-  showMoviments = () => {
+  showmovements = () => {
     const { knightPosition } = this.state;
 
     if (!knightPosition) return;
@@ -35,10 +35,10 @@ class Chess extends Component {
 
     this.setState({ loading: true }, async () => {
       try {
-        const availableMoviments = await KnightService.getMoviment(
+        const availablemovements = await KnightService.getmovement(
           formatedPosition
         );
-        this.setState({ availableMoviments, loading: false });
+        this.setState({ availablemovements, loading: false });
       } catch {
         this.setState({ loading: false });
       }
@@ -54,13 +54,13 @@ class Chess extends Component {
       for (let x = 1; x < 9; x++) {
         const coords = `${x}, ${y}`;
         const active = this.isActive(x, y);
-        const moviment = this.isMoviment(x, y);
+        const movement = this.ismovement(x, y);
 
         children.push(
           <div
             className={cs(`square square-${x}-${y}`, {
               active,
-              moviment
+              movement
             })}
             key={coords}
             onClick={() => this.moveKnight({ x, y })}
@@ -81,8 +81,8 @@ class Chess extends Component {
   render() {
     return (
       <div className="chess-board">
-        <button className="btn show-moviments" onClick={this.showMoviments}>
-          {this.state.loading ? "Loading.." : "Show Moviments (?)"}
+        <button className="btn show-movements" onClick={this.showmovements}>
+          {this.state.loading ? "Loading.." : "Show movements (?)"}
         </button>
         {this.renderChess()}
       </div>

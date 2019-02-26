@@ -1,10 +1,10 @@
 class ChessController < ApplicationController
-  def knight_moviments
+  def knight_movements
     position = params[:position]
 
     if ChessValidationService.validate_format(position)
-      available_moviments = ChessKnightService.run(position)
-      render json: { moviments: available_moviments }, status: :ok
+      available_movements = ChessKnightService.run(position)
+      render json: { movements: available_movements }, status: :ok
     else
       render status: :error
     end

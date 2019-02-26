@@ -1,11 +1,11 @@
 import http from "../utils/http";
 
 const KnightService = {
-  getMoviment(position) {
+  getmovement(position) {
     return new Promise((resolve, reject) =>
       http
-        .get(`/moviments/knight/${position}`)
-        .then(response => resolve(response.data.moviments))
+        .get(`/movements/knight/${position}`)
+        .then(response => resolve(response.data.movements))
         .catch(error => reject(error))
     );
   }
