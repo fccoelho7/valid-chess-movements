@@ -46,7 +46,6 @@ class Chess extends Component {
   };
 
   renderChess = () => {
-    const { loading } = this.state;
     const positions = [];
 
     for (let y = 1; y < 9; y++) {
@@ -76,16 +75,14 @@ class Chess extends Component {
       );
     }
 
-    return (
-      <div className={cs("chess-board-main", { loading })}>{positions}</div>
-    );
+    return <div className="chess-board-main">{positions}</div>;
   };
 
   render() {
     return (
       <div className="chess-board">
         <button className="btn show-moviments" onClick={this.showMoviments}>
-          Show Moviments (?)
+          {this.state.loading ? "Loading.." : "Show Moviments (?)"}
         </button>
         {this.renderChess()}
       </div>

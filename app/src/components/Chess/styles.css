@@ -8,18 +8,6 @@
   position: relative;
 }
 
-.chess-board-main.loading:after {
-  background-color: rgba(255, 255, 255, 0.6);
-  bottom: 0;
-  content: "";
-  display: block;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-}
-
 .chess-board-main .row {
   display: flex;
   flex-wrap: wrap;
