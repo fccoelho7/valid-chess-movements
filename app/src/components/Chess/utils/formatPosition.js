@@ -9,6 +9,6 @@ const LETTERS = {
   8: "H"
 };
 
-const formatPosition = (x, y) => (LETTERS[x] + y).toString();
+const formatPosition = ({ x, y }) => LETTERS[x] + y;
 
 export default formatPosition;

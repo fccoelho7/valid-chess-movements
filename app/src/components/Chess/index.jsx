@@ -23,10 +23,14 @@ class Chess extends Component {
     );
   }
 
-  moveKnight = position => this.setState({ knightPosition: position });
+  moveKnight = position =>
+    this.setState({ knightPosition: position, availableMoviments: [] });
 
   showMoviments = () => {
     const { knightPosition } = this.state;
+
+    if (!knightPosition) return;
+
     const formatedPosition = formatPosition(knightPosition);
 
     this.setState({ loading: true }, async () => {
@@ -61,9 +65,7 @@ class Chess extends Component {
             })}
             key={coords}
             onClick={() => this.moveKnight({ x, y })}
-          >
-            {coords}
-          </div>
+          />
         );
       }
 

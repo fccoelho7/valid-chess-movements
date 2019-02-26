@@ -1,6 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "http://0.0.0.0/chess",
-  timeout: 1000
+  baseURL: "http://192.168.99.100:4000/chess"
 });

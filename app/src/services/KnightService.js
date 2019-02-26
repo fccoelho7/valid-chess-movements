@@ -2,18 +2,12 @@ import http from "../utils/http";
 
 const KnightService = {
   getMoviment(position) {
-    // return new Promise((resolve, reject) => {
-    //   http
-    //     .get(`/knight/moviment/${position}`)
-    //     .then(response => resolve(response.data))
-    //     .catch(error => reject(error));
-    // });
-
-    return new Promise(resolve => {
-      return setTimeout(() => {
-        resolve([[2, 3], [3, 2], [1, 7]]);
-      }, 1000);
-    });
+    return new Promise((resolve, reject) =>
+      http
+        .get(`/moviments/knight/${position}`)
+        .then(response => resolve(response.data.moviments))
+        .catch(error => reject(error))
+    );
   }
 };
 

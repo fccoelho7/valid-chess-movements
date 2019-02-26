@@ -22,6 +22,7 @@ describe("Chess", () => {
   });
 
   it("highlights available positions", async () => {
+    wrapper.find(".item-1-2").simulate("click");
     wrapper.find(".show-moviments").simulate("click");
 
     await Promise.resolve();

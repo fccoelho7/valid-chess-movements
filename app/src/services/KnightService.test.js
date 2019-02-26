@@ -12,7 +12,7 @@ describe("KnightService", () => {
     });
 
     it("calls http client with correct route path", () => {
-      expect(http.get).toHaveBeenCalledWith("/knight/moviment/A1");
+      expect(http.get).toHaveBeenCalledWith("/moviments/knight/A1");
     });
 
     it("retrieves moviments by provided position", () => {
